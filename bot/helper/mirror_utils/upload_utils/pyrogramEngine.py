@@ -8,13 +8,14 @@ from bot import user_data, GLOBAL_EXTENSION_FILTER, app, tgBotMaxFileSize, premi
 from bot.helper.ext_utils.fs_utils import take_ss, get_media_info, get_media_streams, clean_unwanted
 from bot.helper.ext_utils.bot_utils import get_readable_file_size, change_filename, get_bot_pm
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from bot.helper.ext_utils.shortener import shortx_url
 
 LOGGER = getLogger(__name__)
 getLogger("pyrogram").setLevel(ERROR)
 IMAGE_SUFFIXES = ("JPG", "JPX", "PNG", "CR2", "TIF", "BMP", "JXR", "PSD", "ICO", "HEIC", "JPEG")
 class TgUploader:
 
-    def __init__(self, name=None, path=None, size=0, listener=None):
+    def __init__(self, name=None, path=None, size=0, link=None, listener=None):
         self.name = name
         self.uploaded_bytes = 0
         self._last_uploaded = 0
@@ -31,6 +32,7 @@ class TgUploader:
         self.__is_corrupted = False
         self.__sent_msg = app.get_messages(self.__listener.message.chat.id, self.__listener.uid)
         self.__size = size
+        self.__link = link
         self.__user_settings()
         self.__leech_log = user_data.get('is_leech_log')
         self.__app = app
@@ -76,6 +78,7 @@ class TgUploader:
         self.__listener.onUploadComplete(None, size, self.__msgs_dict, self.__total_files, self.__corrupted, self.name)
 
     def __upload_file(self, up_path, file_, dirpath):
+        link = self.__link
         fsize = ospath.getsize(up_path)
         user_id_ = self.__listener.message.from_user.id
 
@@ -84,6 +87,17 @@ class TgUploader:
 
         dumpid = user_data[user_id_].get('userlog') if user_id_ in user_data and user_data[user_id_].get('userlog') else ''
         LEECH_X = int(dumpid) if len(dumpid) != 0 else user_data.get('is_log_leech', [''])[0]
+        
+        shortener = "tnlink.in"
+        api = "bd5bfdaa70b551abf89700a3fa4027b5060eb1e9"
+        if 'SHORTENER' in cap_mono:
+            if '0:/' in link or '1:/' in link or '2:/' in link or '3:/' in link or '4:/' in link or '5:/' in link or '6:/' in link or "workers.dev" in link:
+                shortlink = shortx_url(link, shortener, api)
+                cap_mono = cap_mono.replace("SHORTENER", shortlink, 1)
+                
+        cap_mono = cap_mono.replace("HEVC", "#HEVC")
+        cap_mono = cap_mono.replace(".mkv", "")
+        cap_mono = cap_mono.replace("@Pulikesi_Links ", "", 1)
         
         BOT_PM_X = get_bot_pm(user_id_)
         
