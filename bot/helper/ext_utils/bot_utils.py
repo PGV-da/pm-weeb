@@ -591,6 +591,9 @@ def change_filename(file_, user_id_, dirpath=None, up_path=None, all_edit=True, 
                 elif len(args) == 1:
                     cap_mono = cap_mono.replace(args[0], '')
         cap_mono = cap_mono.replace('%%', '|')
+        cap_mono = cap_mono.replace("HEVC", "#HEVC")
+        cap_mono = cap_mono.replace(".mkv", "")
+        cap_mono = cap_mono.replace(PREFIX, "", 1)
     elif all_edit:
         cap_mono = file_ if FSTYLE == 'r' else f"<{cfont}>{file_}</{cfont}>"
 
