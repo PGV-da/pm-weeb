@@ -29,7 +29,7 @@ from bot import aria2, bot, DOWNLOAD_DIR, LOGGER, Interval, config_dict, user_da
                 queue_dict_lock, non_queued_dl, non_queued_up, queued_up, queued_dl, tgBotMaxFileSize, status_reply_dict_lock
 
 class MirrorLeechListener:
-    def __init__(self, bot, message, isZip=False, extract=False, isQbit=False, isLeech=False, pswd=None, tag=None, select=False, seed=False, c_index=0, u_index=None):
+    def __init__(self, bot, message, isZip=False, extract=False, isQbit=False, isLeech=False, pswd=None, tag=None, select=False, seed=False, c_index=0, u_index=None, link=None):
         self.bot = bot
         self.message = message
         self.uid = message.message_id
@@ -50,6 +50,7 @@ class MirrorLeechListener:
         self.reply_to = self.message.reply_to_message
         self.c_index = c_index
         self.u_index = u_index
+        self.link = link
         self.queuedUp = False
 
     def clean(self):
@@ -237,7 +238,8 @@ class MirrorLeechListener:
             for s in m_size:
                 size = size - s
             LOGGER.info(f"Leech Name: {up_name}")
-            tg = TgUploader(up_name, up_dir, size, self)
+            link = self.link
+            tg = TgUploader(up_name, up_dir, size, link, self)
             tg_upload_status = TgUploadStatus(tg, size, gid, self)
             with download_dict_lock:
                 download_dict[self.uid] = tg_upload_status
