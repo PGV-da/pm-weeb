@@ -391,7 +391,7 @@ class GoogleDriveHelper:
                     msg += f'\n<b>├🗂️ Files: </b>{self.__total_files}'
                 else:
                     msg += f'<b>𝗡𝗮𝗺𝗲: </b><code>{f_name}</code>'
-                    msg += f'\n<b>𝗦𝗶𝘇𝗲: </b>{get_readable_file_size(self.transferred_size)}'
+                    msg += f'\n\n<b>𝗦𝗶𝘇𝗲: </b>{get_readable_file_size(self.transferred_size)}'
                     msg += f'\n<b>𝗧𝘆𝗽𝗲: </b>Folder'
                     msg += f'\n<b>𝗦𝘂𝗯𝗙𝗼𝗹𝗱𝗲𝗿𝘀: </b>{self.__total_folders}'
                     msg += f'\n<b>𝗙𝗶𝗹𝗲𝘀: </b>{self.__total_files}'
@@ -419,7 +419,7 @@ class GoogleDriveHelper:
                     msg += f'\n<b>├📦 Size: </b>{get_readable_file_size(int(meta.get("size", 0)))}'
                     msg += f'\n<b>├♻ Type: </b>{mime_type}'
                 else:
-                    msg += f'\n<b>𝗦𝗶𝘇𝗲: </b>{get_readable_file_size(int(meta.get("size", 0)))}'
+                    msg += f'\n\n<b>𝗦𝗶𝘇𝗲: </b>{get_readable_file_size(int(meta.get("size", 0)))}'
                     msg += f'\n<b>𝗧𝘆𝗽𝗲: </b>{mime_type}'
                 if INDEX_URL := INDEXURL:
                     url_path = rquote(f'{file.get("name")}', safe='')
