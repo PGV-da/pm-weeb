@@ -311,7 +311,7 @@ def start_clone(listelem):
         slmsg += f"╰👥 Added by: {tag} | <code>{user_id}</code>\n\n"
     else:
         slmsg = f"𝗡𝗮𝗺𝗲:  <{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
-        slmsg += f"𝗦𝗶𝘇𝗲: {get_readable_file_size(size)}\n"
+        slmsg += f"𝗦𝗶𝘇𝗲: {get_readable_file_size(size)}\n\n"
         slmsg += f"𝗥𝗲𝗾 𝗕𝗬: {tag} | <code>{user_id}</code>\n\n"
     if 'link_logs' in user_data:
         try:
@@ -337,7 +337,7 @@ def start_clone(listelem):
     if config_dict['EMOJI_THEME']:
         cc = f'\n<b>╰👤 #Clone_By: </b>{tag}\n\n'
     else:
-        cc = f'\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{tag}\n\n'
+        cc = f'\n\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{tag}\n\n'
     if button.build_menu(2) in ["cancelled", ""]:
         sendMessage(f"{tag} {result}", bot, message)
     else:
