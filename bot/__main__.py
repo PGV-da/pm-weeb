@@ -101,8 +101,7 @@ def stats(update, context):
                     f'<b>├  Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
                     f'<b>├  Disk Free:</b> {free}\n'\
                     f'<b>├  Upload Data:</b> {sent}\n'\
-                    f'<b>├  Download Data:</b> {recv}\n'
-                    f'<b>╰▬▬▬▬ PM x Cloud ▬▬▬▬</b>\n\n'
+                    f'<b>╰  Download Data:</b> {recv}\n'
 
 
 
