@@ -410,7 +410,7 @@ class MirrorLeechListener:
                 msg += f'\n<b>╰👤 #Leech_by: </b>{self.tag}\n\n'
             else: 
                 msg += f'\n<b>𝗧𝗶𝗺𝗲 𝗘𝗹𝗮𝗽𝘀𝗲𝗱:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{self.tag}\n\n'
+                msg += f'\n\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{self.tag}\n\n'
 
             if not self.isPrivate and config_dict['SAVE_MSG']:
                 buttons.sbutton('Save This Message', 'save', 'footer')
@@ -469,7 +469,7 @@ class MirrorLeechListener:
             if config_dict['EMOJI_THEME']:
                 msg += f'\n<b>├📦 Type: </b>{typ}'
             else:
-                msg += f'\n\n<b>𝗧𝘆𝗽𝗲: </b>{typ}'
+                msg += f'\n<b>𝗧𝘆𝗽𝗲: </b>{typ}'
             if typ == "Folder":
                 if config_dict['EMOJI_THEME']:
                     msg += f'\n<b>├🗃️ SubFolders: </b>{folders}'
@@ -482,7 +482,7 @@ class MirrorLeechListener:
                 msg += f'\n<b>╰👤 #Mirror_By: </b>{self.tag}\n\n'
             else:
                 msg += f'\n<b>𝗧𝗶𝗺𝗲 𝗘𝗹𝗮𝗽𝘀𝗲𝗱:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{self.tag}\n\n' 
+                msg += f'\n\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{self.tag}\n\n' 
             buttons = ButtonMaker()
             link = short_url(link, user_id_)
             if config_dict['DISABLE_DRIVE_LINK'] and self.message.chat.type != 'private':
