@@ -230,8 +230,8 @@ def start_clone(listelem):
                     msg = f"<b>🗂️ Name: </b><{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
                 else:
                     msg = f"<b>𝗡𝗮𝗺𝗲: </b><{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
-                cc = f'\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{tag}\n\n'
-                botpm = f"𝙄'𝙫𝙚 𝙎𝙚𝙣𝙙 𝙩𝙝𝙚 𝙇𝙞𝙣𝙠𝙨 𝙏𝙤 𝙔𝙤𝙪𝙧 𝙋𝙈.</b>\n"
+                cc = f'\n\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{tag}\n\n'
+                botpm = f"<b>𝙄'𝙫𝙚 𝙎𝙚𝙣𝙙 𝙩𝙝𝙚 𝙇𝙞𝙣𝙠𝙨 𝙏𝙤 𝙔𝙤𝙪𝙧 𝙋𝙈.</b>\n"
                 buttons = ButtonMaker()
                 b_uname = bot.get_me().username
                 botstart = f"http://t.me/{b_uname}"
@@ -244,7 +244,7 @@ def start_clone(listelem):
                 if config_dict['EMOJI_THEME']:
                     cc = f'\n<b>╰👤 #Clone_By: </b>{tag}\n\n'
                 else:
-                    cc = f'\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{tag}\n\n'
+                    cc = f'\n\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{tag}\n\n'
                 if config_dict['PICS']:
                     sendPhoto(result + cc, bot, message, rchoice(config_dict['PICS']), button)
                 else:
@@ -274,8 +274,8 @@ def start_clone(listelem):
                             msg = f"<b>🗂️ Name: </b><{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
                         else:
                             msg = f"<b>𝗡𝗮𝗺𝗲: </b><{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
-                        cc = f'\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{tag}\n\n'
-                        botpm = f"𝙄'𝙫𝙚 𝙎𝙚𝙣𝙙 𝙩𝙝𝙚 𝙇𝙞𝙣𝙠𝙨 𝙏𝙤 𝙔𝙤𝙪𝙧 𝙋𝙈.</b>\n"
+                        cc = f'\n\n<b>𝗥𝗲𝗾 𝗕𝗬: </b>{tag}\n\n'
+                        botpm = f"<b>𝙄'𝙫𝙚 𝙎𝙚𝙣𝙙 𝙩𝙝𝙚 𝙇𝙞𝙣𝙠𝙨 𝙏𝙤 𝙔𝙤𝙪𝙧 𝙋𝙈.</b>\n"
                         buttons = ButtonMaker()
                         b_uname = bot.get_me().username
                         botstart = f"http://t.me/{b_uname}"
