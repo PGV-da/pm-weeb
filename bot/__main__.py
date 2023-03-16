@@ -101,7 +101,8 @@ def stats(update, context):
                     f'<b>├  Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
                     f'<b>├  Disk Free:</b> {free}\n'\
                     f'<b>├  Upload Data:</b> {sent}\n'\
-                    f'<b>╰  Download Data:</b> {recv}\n\n'
+                    f'<b>├  Download Data:</b> {recv}\n'
+                    f'<b>╰▬▬▬▬ PM x Cloud ▬▬▬▬</b>\n\n'
 
 
 
@@ -153,19 +154,18 @@ def start(update, context):
         buttons.buildbutton(f"😎 {config_dict['START_BTN1_NAME']}", f"{config_dict['START_BTN1_URL']}")
         buttons.buildbutton(f"🔥 {config_dict['START_BTN2_NAME']}", f"{config_dict['START_BTN2_URL']}")
     else:
-        buttons.buildbutton(f"{config_dict['START_BTN1_NAME']}", f"{config_dict['START_BTN1_URL']}")
-        buttons.buildbutton(f"{config_dict['START_BTN2_NAME']}", f"{config_dict['START_BTN2_URL']}")
+        buttons.buildbutton("𝗣𝗠 𝘅 𝗖𝗹𝗼𝘂𝗱", "https://t.me/PMxCloud")
     reply_markup = buttons.build_menu(2)
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
-        start_string = f'''This bot can mirror all your links to Google Drive!
-Type /{BotCommands.HelpCommand} to get a list of available commands
+        start_string = f'''Th
+BoT1 is Working.
 '''
         if config_dict['PICS']:
             sendPhoto(start_string, context.bot, update.message, rchoice(config_dict['PICS']), reply_markup)
         else:
             sendMessage(start_string, context.bot, update.message, reply_markup)
     else:
-        text = f"Not Authorized user, deploy your own mirror bot"
+        text = f"𝗛𝗲𝘆👋,\n\n𝗧𝗵𝗮𝗻𝗸 𝗬𝗼𝘂 𝗙𝗼𝗿 𝗦𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗶𝗻𝗴 𝗺𝗲 𝗫𝟭.\n\n#PMxCloud"
         if config_dict['PICS']:
             sendPhoto(text, context.bot, update.message, rchoice(config_dict['PICS']), reply_markup)
         else:
@@ -425,13 +425,13 @@ def main():
                 if ospath.isfile(".restartmsg"):
                     with open(".restartmsg") as f:
                         chat_id, msg_id = map(int, f)
-                    msg = f"😎 Restarted Successfully❗\n"
+                    msg = f"Every New End is a New Begining.\n\nXV BOT RESTARTED ⚡️\n\n"
                 else:
-                    msg = f"😎 Bot Restarted!\n"
+                    msg = f"Every New End is a New Begining.\n\nXV BOT STARTED ⚡️\n\n"
                 msg += f"📅 DATE: {date}\n"
                 msg += f"⌚ TIME: {time}\n"
-                msg += f"🌐 TIMEZONE: {timez}\n"
-                msg += f"🤖 VERSION: {version}"
+                msg += f"🌐 TIMEZONE: {timez}\n\n"
+                msg += f"<b>Please Re-Add the Torrent's</b>"
 
                 for tag, links in data.items():
                     msg += f"\n{tag}: "
@@ -466,11 +466,11 @@ def main():
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
         try:
-            msg = f"😎 Restarted Successfully❗\n"
+            msg = f"Every New End is a New Begining.\n\nXV BOT RESTARTED ⚡️\n\n"
             msg += f"📅 DATE: {date}\n"
             msg += f"⌚ TIME: {time}\n"
-            msg += f"🌐 TIMEZONE: {timez}\n"
-            msg += f"🤖 VERSION: {version}"            
+            msg += f"🌐 TIMEZONE: {timez}\n\n"
+            msg += f"<b>Please Re-Add the Torrent's</b>"           
             bot.edit_message_text(msg, chat_id, msg_id)
         except Exception as e:
             LOGGER.info(e)
