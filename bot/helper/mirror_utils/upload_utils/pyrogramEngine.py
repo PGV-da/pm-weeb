@@ -95,9 +95,6 @@ class TgUploader:
                 shortlink = shortx_url(link, shortener, api)
                 cap_mono = cap_mono.replace("SHORTENER", shortlink, 1)
                 
-        cap_mono = cap_mono.replace("HEVC", "#HEVC")
-        cap_mono = cap_mono.replace(".mkv", "")
-        cap_mono = cap_mono.replace("@Pulikesi_Links ", "", 1)
         
         BOT_PM_X = get_bot_pm(user_id_)
         
