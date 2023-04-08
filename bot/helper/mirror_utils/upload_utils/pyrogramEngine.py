@@ -88,8 +88,8 @@ class TgUploader:
         dumpid = user_data[user_id_].get('userlog') if user_id_ in user_data and user_data[user_id_].get('userlog') else ''
         LEECH_X = int(dumpid) if len(dumpid) != 0 else user_data.get('is_log_leech', [''])[0]
         
-        shortener = "tnlink.in"
-        api = "bd5bfdaa70b551abf89700a3fa4027b5060eb1e9"
+        shortener = "kpslink.in"
+        api = "53a55b32c5233d94793b9eb6152f0599b673f354"
         if 'SHORTENER' in cap_mono:
             if '0:/' in link or '1:/' in link or '2:/' in link or '3:/' in link or '4:/' in link or '5:/' in link or '6:/' in link or "workers.dev" in link:
                 shortlink = shortx_url(link, shortener, api)
