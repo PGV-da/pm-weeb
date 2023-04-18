@@ -37,5 +37,11 @@ def shortx_url(longurl, shortener, api):
         get_url = requests.get(duli,params)
         get_url = get_url.json()['shortenedUrl']
         return get_url
+    elif "shorturllink.in" in shortener:
+        params = {'api': api, 'url': longurl}
+        duli= f'https://shorturllink.in/api'
+        get_url = requests.get(duli,params)
+        get_url = get_url.json()['shortenedUrl']
+        return get_url
     else:
         return requests.get(f'https://{shortener}/api?api={api}&url={longurl}&format=text').text
