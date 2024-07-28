@@ -25,10 +25,13 @@ def shortx_url(longurl, shortener, api):
         get_url = requests.get(duli,params)
         get_url = get_url.json()['shortenedUrl']
         return get_url
-    elif "tnlink.in" in shortener:
-        params = {'api': api, 'url': longurl}
-        duli= f'https://tnlink.in/api'
-        get_url = requests.get(duli,params)
+    elif "tnshort.net" in shortener:
+        longurl = longurl.replace("http://", "https://")
+        url = f'https://{shortener}/api'
+        params = {'api': api,
+                  'url': longurl,
+                  }
+        get_url = requests.get(url,params)
         get_url = get_url.json()['shortenedUrl']
         return get_url
     elif "kpslink.in" in shortener:
